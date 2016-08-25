@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>My syte</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+</head>
+<body class="diagonal_fabric">
+	<div class="background">
+		<div class="gradient">
+			<div class="birka"></div>
+			<nav class="navbar navbar-default" >
+	  			<div class="container-fluid" >
+	    			<div class="navbar-header">
+	      				<a class="navbar-brand" href="#">Brand</a>
+	    			</div>
+	    			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      				<ul class="nav navbar-nav" >
+	        				<li id="nav_border"><a href="/"><span class="glyphicon glyphicon-home"></span> Главная </a></li>
+					        <li id="nav_border"><a href="/registration"><span class="glyphicon glyphicon-check"></span> Регистрация </a></li>
+					        <li id="nav_border"><a href="/ad/latest"><span class="glyphicon glyphicon-tags"></span> Новые объявления</a></li>
+	      				</ul>
+	     		 		<form class="navbar-form navbar-left" role="search">
+	        				<div class="form-group">
+	          					<input type="text" class="form-control" placeholder="Поиск">
+	        				</div>
+	        				<button type="submit" class="btn btn-default">Найти!</button>
+	      				</form>
+	      				<ul class="nav navbar-nav navbar-right">
+	        				<li id="nav_border">
+		        				<a href="/profile">
+		        					<span class="glyphicon glyphicon-user"></span> <%=@username%>
+								</a>
+			 				</li>
+	        				<li id="nav_border" class="dropdown">
+	          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Управление профилем <span class="caret"></span>
+	          					</a>
+	          					<ul class="dropdown-menu">
+						            <li><a href="/ad/new">Написать Объявление</a></li>
+						            <li><a href="/userads">Ваши объявления</a></li>
+						            <li><a href="#"></a></li>
+						            <li class="divider"></li>
+						            <li><a href="/logout">Выход</a></li>
+					          	</ul>
+	        				</li>
+	      				</ul>
+	    			</div>
+	  			</div>
+			</nav>
+		</div>
+	</div>
+
+	<div class="row">	  
+		<div class="col-md-3">
+			<div class='categorybar'>
+				<table class="table category"> 
+					<caption class="text-center"><p id='fontintro'>Категории</p></caption>		
+					<% @categs.each do |categ|%>
+						<div>
+				   			<tr>
+						   		<td>
+							   		<a href='/category/<%=categ.url%>'>
+								   		<div class="tab_category"><%=categ.category %></div> 
+									</a>	
+							   	</td>
+							</tr>				
+						</div>				   							   
+					<% end%>	  
+				</table>
+			</div>
+		</div>
+
+		<div class="col-md-9 container" id="head_container">
+			<div class="page-hdr text-center"><span  class="<%=$icon%>"></span> <%= @title%></div>
+		</div>
+
+		<div class="col-md-9 container">
+		    <%if $error && $error.length > 0 then %>
+		        <div class="alert alert-danger"><%=$error%></div>
+		    <% end %>
+		    <%if $success && $success.length > 0 then %>
+		        <div class="alert alert-success"><%=$success%></div>
+		    <% end %>
+		    <%= yield %>	
+		</div>
+	</div>
+</body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/bootstrap/jquery-1.9.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+    
+</html>
