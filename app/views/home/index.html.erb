@@ -1,0 +1,54 @@
+<%unless session[:identity] then %>
+<div class="row">
+	<div class="col-md-6">
+
+		<div class='border'>
+			<caption><span id='fontintro'>&emsp;&emsp;Вход</span>
+			</caption>
+			<div class="border-content">
+				<form action ='/' method="POST">
+
+					<div class="form-group">
+						<label>Username</label>
+						<input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" <%if @error%> value=<%=params[:username]%> <%end%>>
+					</div>
+
+					<div class="form-group">
+						<label>Password</label>
+						<input name="pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>	
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class='border'>
+			<caption><span id='fontintro'>&emsp;&emsp;Регистрация</span></caption>
+			<div class="border-content">
+
+				<form action ='/register' method="POST">
+					
+					<div class="form-group">
+						<label>Логин</label>
+						<input name="reg_username" type="text" class="form-control" placeholder="Username" 
+					    <%if @error%> value=<%=params[:reg_username]%> <%end%>>
+					</div>
+
+					<div class="form-group">
+						<label>Пароль</label>
+						<input name="reg_pass" type="password" class="form-control" placeholder="Password">
+					</div>
+
+					<div class="form-group">
+						<label>Проверка пароля</label>
+						<input name="pass_check" type="password" class="form-control" placeholder="Password">
+					</div>
+
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+		</div>	
+	</div>
+<%end%>
