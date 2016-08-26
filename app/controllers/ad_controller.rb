@@ -3,6 +3,7 @@ class AdController < ApplicationController
     @title = "Написать объявление"
     unless $client
       $error = "Сначала войдите"
+      redirect_to "/"
     end
   end
 

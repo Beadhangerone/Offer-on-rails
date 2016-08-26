@@ -56,7 +56,7 @@
 			<div class='categorybar'>
 				<table class="table category"> 
 					<caption class="text-center"><p id='fontintro'>Категории</p></caption>		
-					<% @categs.each do |categ|%>
+					<% categs.each do |categ|%>
 						<div>
 				   			<tr>
 						   		<td>
@@ -76,10 +76,10 @@
 		</div>
 
 		<div class="col-md-9 container">
-		    <%if $error !=nil then %>
+		    <%if $error !=nil && $error.length > 0 then %>
 		        <div class="alert alert-danger"><%=$error%></div>
 		    <% end %>
-		    <%if $success !=nil then %>
+		    <%if $success !=nil && $success.length > 0 then %>
 		        <div class="alert alert-success"><%=$success%></div>
 		    <% end %>
 		  	<%$error=nil%>
