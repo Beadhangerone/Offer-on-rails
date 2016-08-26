@@ -30,7 +30,7 @@
 	      				<ul class="nav navbar-nav navbar-right">
 	        				<li id="nav_border">
 		        				<a href="/profile">
-		        					<span class="glyphicon glyphicon-user"></span> <%=@username%>
+		        					<span class="glyphicon glyphicon-user"></span> <%=username%>
 								</a>
 			 				</li>
 	        				<li id="nav_border" class="dropdown">
@@ -76,12 +76,14 @@
 		</div>
 
 		<div class="col-md-9 container">
-		    <%if $error && $error.length > 0 then %>
+		    <%if $error !=nil then %>
 		        <div class="alert alert-danger"><%=$error%></div>
 		    <% end %>
-		    <%if $success && $success.length > 0 then %>
+		    <%if $success !=nil then %>
 		        <div class="alert alert-success"><%=$success%></div>
 		    <% end %>
+		  	<%$error=nil%>
+		  	<%$success=nil%>
 		    <%= yield %>	
 		</div>
 	</div>
