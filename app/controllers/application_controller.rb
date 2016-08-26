@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
 
   skip_before_filter :verify_authenticity_token
-  before_filter :pickup_categs
-
+ 
   layout "application"
   
   def render_403
@@ -14,11 +13,4 @@ class ApplicationController < ActionController::Base
   end
 
   protect_from_forgery with: :exception
-
-
-  private
-
-  def pickup_categs
-    @categs = Category.all
-  end
 end

@@ -14,7 +14,6 @@ class HomeController < ApplicationController
     unless $client
       $error = "Сначала войдите"
       redirect_to "/"
-    
     end
   end
 
