@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 	get "/" => "home#index"
   get "/registration" => "home#registration"
   get "/profile" => "home#profile"
+  get "/logout" => "home#logout"
 #-----home_end
+
+#-----user
+  post "/registration" => "user#create"
+#-----user_end
 
 #-----ad
   get "/ad/new" => "ad#new"
