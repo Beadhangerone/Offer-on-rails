@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825082353) do
+ActiveRecord::Schema.define(version: 20160825120859) do
 
   create_table "ads", force: true do |t|
     t.text     "author"
@@ -37,5 +37,18 @@ ActiveRecord::Schema.define(version: 20160825082353) do
 
   add_index "categories", ["category"], name: "index_categories_on_category"
   add_index "categories", ["url"], name: "index_categories_on_url"
+
+  create_table "users", force: true do |t|
+    t.text     "username"
+    t.text     "pass"
+    t.integer  "total_ads",  default: 0
+    t.integer  "reputation", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["id"], name: "index_users_on_id"
+  add_index "users", ["reputation"], name: "index_users_on_reputation"
+  add_index "users", ["username"], name: "index_users_on_username"
 
 end
