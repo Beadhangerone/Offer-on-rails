@@ -45,8 +45,8 @@ class AdController < ApplicationController
 
   def latest
     @title = "Последние объявления"
-    @ads = Ad.last(5)
-    @ads.reverse!
+    $ads = Ad.last(5).take
+    $ads.reverse!
   end
 
 

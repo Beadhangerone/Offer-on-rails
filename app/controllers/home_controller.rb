@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
     @title = "Offer.md"
-    @ads = Ad.last(20)
-    @ads.reverse!
+    $ads = Ad.last(20)
+    $ads.reverse!
   end
 
   def registration
