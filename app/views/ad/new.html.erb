@@ -1,0 +1,61 @@
+
+<form action ='/write_ad' method="POST">
+
+	<div class="input-group">
+
+		<div class="input-group-addon">Категория</div>
+
+		<select onChange="TakeCateg(this)" name="category" class="form-control ctgr_select">
+
+			<%if not params[:category]%>
+				<option disabled selected> Выберите категорию </option>
+			<%elsif @error%>
+				<option selected> <%= params[:category] %></option>
+			<%end%> 
+
+			<% categs.each do |categ|%>   
+				<option value=<%= categ.url %>><%= categ.category %></option>		    
+			<% end%>  
+		</select>
+	
+		<!-- <div class="input-group-addon">Подкатегория</div>
+		<select disabled="" id="subcategory" name="category2" class="form-control ctgr_select">
+
+			<option disabled selected>Выберите подкатегорию</option>   
+			<% categs.each do |key, value|%>
+			<option><%= key %></option>		    
+			<% end%>  
+		</select>  -->
+	</div>
+
+
+	<!-- <div id="test"></div>
+
+
+	<script type="text/javascript">
+	var chosen_category = element.options[element.selectedIndex].text;
+	var subcategory = document.getElementById("subcategory") ;
+		function TakeCateg(element) {
+		subcategory.disabled = false;
+	    document.getElementById("test").innerHTML = chosen_category;
+	}
+	</script> -->
+
+	<div class="radio">
+		<label>
+			<input name="sell_buy" value="Продам" type="radio"  id="optionsRadios1"
+			<%if @error && params[:sell_buy]=="Продам"%> checked <%end%>>Продам
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+		    <input name="sell_buy" value="Куплю" type="radio"  id="optionsRadios2"
+		    <%if @error && params[:sell_buy]=="Куплю"%> checked <%end%>>Куплю
+		</label>
+	</div>
+	<input name="ad_header" type="text" class="form-control" placeholder="Заголовок объявления"
+	<%if @error%> value=<%=params[:ad_header]%><%end%>><br>
+	<textarea name="ad_text" class="form-control" wrap="hard" cols="100" rows="20"
+	 placeholder="Текст объявления"<%if @error%> value=<%=params[:ad_text]%><%end%>></textarea><br>
+	<button type="submit" class="btn btn-default" style="float:right;">Submit</button>
+</form>
