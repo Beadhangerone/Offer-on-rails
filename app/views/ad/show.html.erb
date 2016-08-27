@@ -1,0 +1,15 @@
+<h3><b><%=$ad.ad_header%></b></h3>
+<hr>
+<br>
+<span><%=$ad.ad_text%></span>
+<br><br>
+<hr>
+<br>
+<span style="font-size:85%">
+<b>Автор: </b><a href="/user/<%= $ad.author%>"><%= $ad.author%></a><br>
+<b>Добавлена: </b><%= $ad.created_at%><br>
+<b>Просмотров: </b><%= $ad.views %>
+</span>
+<%		$ad.views +=1
+		$ad.save
+%>

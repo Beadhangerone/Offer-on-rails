@@ -12,8 +12,12 @@ Rails.application.routes.draw do
 #-----user_end
 
 #-----ad
-  get "/ad/new" => "ad#new"
+  resources :ad
   get "/ad/latest" => "ad#latest"
+  # get "/ad/new" => "ad#new"
+  # post "/ad/new" => "ad#create"
+  # get "/ad/:id" => "ad#show"
+
 #-----ad_end
 
 

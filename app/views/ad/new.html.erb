@@ -1,11 +1,11 @@
 
-<form action ='/write_ad' method="POST">
+<form action ='/ad' method="POST">
 
 	<div class="input-group">
 
 		<div class="input-group-addon">Категория</div>
 
-		<select onChange="TakeCateg(this)" name="category" class="form-control ctgr_select">
+		<select name="category" class="form-control ctgr_select">
 
 			<%if not params[:category]%>
 				<option disabled selected> Выберите категорию </option>
