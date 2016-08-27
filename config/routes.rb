@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
 #-----user
   post "/registration" => "user#create"
+  post "/login" => "user#login"
 #-----user_end
 
 #-----ad
