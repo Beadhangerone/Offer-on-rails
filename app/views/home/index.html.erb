@@ -1,16 +1,13 @@
 <%unless $client then %>
 <div class="row">
 	<div class="col-md-6">
-
 		<div class='border'>
-			<caption><span id='fontintro'>&emsp;&emsp;Вход</span>
-			</caption>
+			<caption><span id='fontintro'>&emsp;&emsp;Вход</span></caption>
 			<div class="border-content">
 				<form action ='/login' method="POST">
-
 					<div class="form-group">
 						<label>Username</label>
-						<input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" <%if @error%> value=<%=params[:username]%> <%end%>>
+						<input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" <%if $error%> value=<%=params[:username]%> <%end%>>
 					</div>
 
 					<div class="form-group">
@@ -27,43 +24,46 @@
 		<div class='border'>
 			<caption><span id='fontintro'>&emsp;&emsp;Регистрация</span></caption>
 			<div class="border-content">
-
-				<form action ='/registration' method="POST">
-					
+				<form action ='/registration' method="POST">				
 					<div class="form-group">
 						<label>Логин</label>
 						<input name="reg_username" type="text" class="form-control" placeholder="Username" 
-					    <%if @error%> value=<%=params[:reg_username]%> <%end%>>
+					    <%if $error%> value=<%=params[:reg_username]%> <%end%>>
 					</div>
-
 					<div class="form-group">
 						<label>Пароль</label>
 						<input name="reg_pass" type="password" class="form-control" placeholder="Password">
 					</div>
-
 					<div class="form-group">
 						<label>Проверка пароля</label>
 						<input name="pass_check" type="password" class="form-control" placeholder="Password">
 					</div>
-
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form>
 			</div>
-		</div>	
+		</div>
+	</div>	
+</div>
+<%end%>
+<br>
+<br>
+<br>
+<div class="border">
+	<caption><span id='fontintro'>&emsp;&emsp;Новейшие объявления</span></caption>
+	<div class="border-content">
+		<% $ads.each do |ad| %>
+			<a href="/ad/<%= ad.id %>"><b style="font-size:130%;"><%= ad.ad_header %></b></a>
+			<br><br>
+			<b>Категория:</b> <%= ad.category %>
+			<br>
+			<b>Предложение:</b> <%= ad.bill_type %>
+			<br>
+			<b>Автор:</b><a href="/user/<%=ad.author%>"> <%= ad.author %></a>
+			<br>
+			<b>Создано:</b> <%= ad.created_at %>
+			<br>
+			<b>Просмотров:</b> <%= ad.views %>
+			<hr>
+		<%end%>
 	</div>
-<%end%>
-
-<% $ads.each do |ad| %>
-	<a href="/ad/<%= ad.id %>"><b style="font-size:130%;"><%= ad.ad_header %></b></a>
-	<br><br>
-	<b>Категория:</b> <%= ad.category %>
-	<br>
-	<b>Предложение:</b> <%= ad.bill_type %>
-	<br>
-	<b>Автор:</b><a href="/user/<%=ad.author%>"> <%= ad.author %></a>
-	<br>
-	<b>Создано:</b> <%= ad.created_at %>
-	<br>
-	<b>Просмотров:</b> <%= ad.views %>
-	<hr>
-<%end%>
+</div>
