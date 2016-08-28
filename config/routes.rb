@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 #-----home_end
 
 #-----user
+  resources :user, only: [:show]
   post "/registration" => "user#create"
   post "/login" => "user#login"
   get "/user/ads" => "user#ads"

@@ -36,6 +36,11 @@ class UserController < ApplicationController
     $ads = Ad.order('id DESC').where(author: "#{$client.username}")
   end
 
+  def show
+    @title = "Пользователь"
+    $user = User.where(username: "#{params[:id]}").take
+  end
+
 
 
 
