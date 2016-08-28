@@ -2,19 +2,19 @@
 <div class="row">
 	<div class="col-md-6">
 		<div class='border'>
-			<caption><span id='fontintro'>&emsp;&emsp;Вход</span></caption>
+			<caption><span class="glyphicon glyphicon-log-in"> </span><span id='fontintro'>  Вход</span></caption>
 			<div class="border-content">
 				<form action ='/login' method="POST">
 					<div class="form-group">
-						<label>Username</label>
+						<label>Логин</label>
 						<input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" <%if $error%> value=<%=params[:username]%> <%end%>>
 					</div>
 
 					<div class="form-group">
-						<label>Password</label>
+						<label>Пароль</label>
 						<input name="pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-default">Вход</button>
 				</form>
 			</div>	
 		</div>
@@ -22,7 +22,7 @@
 
 	<div class="col-md-6">
 		<div class='border'>
-			<caption><span id='fontintro'>&emsp;&emsp;Регистрация</span></caption>
+			<caption><span class="glyphicon glyphicon-user"></span><span id='fontintro'>  Регистрация</span></caption>
 			<div class="border-content">
 				<form action ='/registration' method="POST">				
 					<div class="form-group">
@@ -38,7 +38,7 @@
 						<label>Проверка пароля</label>
 						<input name="pass_check" type="password" class="form-control" placeholder="Password">
 					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-default">Регистрация</button>
 				</form>
 			</div>
 		</div>
