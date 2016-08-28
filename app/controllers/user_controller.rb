@@ -1,6 +1,7 @@
 class UserController < ApplicationController
-
   skip_before_filter :verify_authenticity_token
+
+
   def create
     @reg_username = params[:reg_username]
     @reg_pass = params[:reg_pass]
@@ -29,6 +30,16 @@ class UserController < ApplicationController
       redirect_to profile_path  
     end
   end
+
+  def ads
+    @title = "Ваши объявления"
+    $ads = Ad.order('id DESC').where(author: "#{$client.username}")
+  end
+
+
+
+
+
 
   private
 

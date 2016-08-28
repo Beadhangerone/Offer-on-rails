@@ -1,0 +1,14 @@
+<div class="border-content">
+	<% $ads.each do |ad| %>
+		<a href="/ad/<%= ad.id %>"><b style="font-size:130%;"><%= ad.ad_header %></b></a>
+		<br><br>
+		<b>Категория:</b> <%= ad.category %>
+		<br>
+		<b>Предложение:</b> <%= ad.bill_type %>
+		<br>
+		<b>Создано:</b> <%= ad.created_at %>
+		<br>
+		<b>Просмотров:</b> <%= ad.views %>
+		<hr>
+	<%end%>
+</div>
