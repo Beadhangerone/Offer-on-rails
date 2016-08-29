@@ -7,7 +7,7 @@
 				<form action ='/login' method="POST">
 					<div class="form-group">
 						<label>Логин</label>
-						<input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" <%if $error%> value=<%=params[:username]%> <%end%>>
+						<input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" <%if $error%> value=<%=$username%> <%end%>>
 					</div>
 
 					<div class="form-group">
@@ -28,7 +28,7 @@
 					<div class="form-group">
 						<label>Логин</label>
 						<input name="reg_username" type="text" class="form-control" placeholder="Username" 
-					    <%if $error%> value=<%=params[:reg_username]%> <%end%>>
+					    <%if $error%> value=<%=$reg_username%> <%end%>>
 					</div>
 					<div class="form-group">
 						<label>Пароль</label>
