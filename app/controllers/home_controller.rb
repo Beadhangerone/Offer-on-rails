@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   def profile
     @title = "Ваш профиль"
     unless $client
-      $error = "Сначала войдите"
+      $error = "Сначала войдите или зарегистрируйтесь"
       redirect_to "/"
     end
   end

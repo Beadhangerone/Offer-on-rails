@@ -9,7 +9,7 @@
 
 			<%if not params[:category]%>
 				<option disabled selected> Выберите категорию </option>
-			<%elsif @error%>
+			<%elsif $error%>
 				<option selected> <%= params[:category] %></option>
 			<%end%> 
 
@@ -44,18 +44,18 @@
 	<div class="radio">
 		<label>
 			<input name="sell_buy" value="Продам" type="radio"  id="optionsRadios1"
-			<%if @error && params[:sell_buy]=="Продам"%> checked <%end%>>Продам
+			<%if $error && params[:sell_buy]=="Продам"%> checked <%end%>>Продам
 		</label>
 	</div>
 	<div class="radio">
 		<label>
 		    <input name="sell_buy" value="Куплю" type="radio"  id="optionsRadios2"
-		    <%if @error && params[:sell_buy]=="Куплю"%> checked <%end%>>Куплю
+		    <%if $error && params[:sell_buy]=="Куплю"%> checked <%end%>>Куплю
 		</label>
 	</div>
 	<input name="ad_header" type="text" class="form-control" placeholder="Заголовок объявления"
-	<%if @error%> value=<%=params[:ad_header]%><%end%>><br>
+	<%if $error%> value=<%=params[:ad_header]%><%end%>><br>
 	<textarea name="ad_text" class="form-control" wrap="hard" cols="100" rows="20"
-	 placeholder="Текст объявления"<%if @error%> value=<%=params[:ad_text]%><%end%>></textarea><br>
+	 placeholder="Текст объявления"<%if $error%> value=<%=params[:ad_text]%><%end%>></textarea><br>
 	<button type="submit" class="btn btn-default" style="float:right;">Submit</button>
 </form>
