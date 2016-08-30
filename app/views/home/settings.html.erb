@@ -20,11 +20,11 @@
 	<br>
 	<div class="border-content">
 		<%unless $client.phone%>
-			<div class="form-group"><span style="font-size: 85%">После указания телефона один раз вам не придется писать его при каждом написании объявления. Это удобно</span><br>
+			<div class="form-group"><span style="font-size: 85%">После указания телефона один раз вам не придется писать его при каждом написании объявления. Это удобно.</span><br>
 		<%end%>
 			<label>Телефон</label>
 			
-			<input name="old_pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Ваш телефон" value= <%= $client.phone %>><br>
+			<input name="phone" type="text" class="form-control" id="exampleInputPassword1" placeholder="Ваш телефон" value= <%= $client.phone %>><br>
 		</div>
 	</div>
 	<br>

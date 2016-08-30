@@ -7,7 +7,22 @@ class UserController < ApplicationController
   end
 
   def edit
-
+    @username = params[:username]
+    @old_pass = params[:old_pass]
+    @new_pass = params[:new_pass]
+    @new_pass_check = params[:new_pass_check]
+    @phone = params[:phone]
+    $error = validation_for("edit").join(" | ")
+    if $error == ""      
+      $client.username = @username if @username != ""      
+      $client.pass = @new_pass if @old_pass != ""
+      $client.phone = @phone if @phone != ""
+      $client.save
+      $success = "Изменения вступили в силу"
+      redirect_to profile_path
+    else
+      redirect_to "/settings"
+    end
   end
 
   def create
@@ -96,7 +111,25 @@ class UserController < ApplicationController
         end
       end
       return errors
-    end
-  end
 
+    elsif type == "edit"
+      if @username != $client.username        
+        if User.where(username: "#{@username}").take != nil
+          errors << "Логин занят"
+        elsif @username.length < 3 && @username.length > 0
+          errors << "Логин слишком короткий(минимум 3 символа)"
+        end       
+      end  
+
+      if @old_pass == $client.pass
+        if @new_pass.length < 5 && @new_pass.length > 0
+          errors << "Новый пароль слишком короткий(минимум 5 символов)"
+        end
+        errors << "Пароли не совпадают" if @new_pass.to_s != @new_pass_check.to_s
+      elsif @old_pass.length != 0 && @old_pass != $client.pass
+        errors << "Неверный прежний пароль"
+      end
+      return errors
+    end         
+  end
 end
