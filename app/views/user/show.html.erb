@@ -5,6 +5,11 @@
 		
 		<div class="col-md-7">
 			<span id="fontintro" style="font-size: 130%"><%=$user.username%></span><hr>
+			<p><b>Тел.:</b> <% if not $user.phone%>
+								Не указанно
+							<%else%>
+								<%= $user.phone%>
+							<%end%></p>
 			<p><b>Репутация:</b> <%=$user.reputation%></p>
 			<p><b>Дата регистрации:</b> <%=$user.created_at%></p>
 			<p><b>Всего объявлений:</b> <%=$user.total_ads%></p>
