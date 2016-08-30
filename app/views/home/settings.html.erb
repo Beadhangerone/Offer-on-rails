@@ -1,0 +1,33 @@
+<div class="border">
+	
+
+	<div class="border-content">
+		<form action ='/settings' method="POST">
+			<div class="form-group">
+				<label>Логин</label>
+				<input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" value= <%= $client.username %>>
+			</div>
+	</div>
+	<br>
+	<div class="border-content">
+		<div class="form-group">
+			<label>Пароль</label>
+			<input name="old_pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Прежний пароль"><br>
+			<input name="new_pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Новый пароль"><br>
+			<input name="new_pass_check" type="password" class="form-control" id="exampleInputPassword1" placeholder="Подтверждение нового пароля">
+		</div>
+	</div>
+	<br>
+	<div class="border-content">
+		<%unless $client.phone%>
+			<div class="form-group"><span style="font-size: 85%">После указания телефона один раз вам не придется писать его при каждом написании объявления. Это удобно</span><br>
+		<%end%>
+			<label>Телефон</label>
+			
+			<input name="old_pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Ваш телефон" value= <%= $client.phone %>><br>
+		</div>
+	</div>
+	<br>
+		<button type="submit" class="btn btn-default">Готово</button>
+	</form>
+</div>
