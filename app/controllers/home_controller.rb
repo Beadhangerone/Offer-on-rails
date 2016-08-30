@@ -21,4 +21,10 @@ class HomeController < ApplicationController
     $client = nil
     redirect_to "/"
   end
+
+  def settings
+    @title = "Настройки"
+  end
+
+ 
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/registration" => "home#registration"
   get "/profile" => "home#profile"
   get "/logout" => "home#logout"
+  get "/settings" => "home#settings"
 #-----home_end
 
 #-----user
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   post "/registration" => "user#create"
   post "/login" => "user#login"
   get "/user/ads" => "user#ads"
+  post "/settings" => "user#edit"
 #-----user_end
 
 #-----ad
