@@ -1,10 +1,21 @@
 <div class="border">
-	<h3>Ваша статистика:</h3><br>
-	<p><b>Имя пользователя:</b> <%=$client.username%></p>
-	<p><b>Репутация:</b> <%=$client.reputation%></p>
-	<p><b>Дата регистрации:</b> <%=$client.created_at%></p>
-	<p><b>Всего объявлений:</b> <%=$client.total_ads%></p>
-	<p><b>ID:</b> <%=$client.id%></p>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+
+		<div class="col-md-7">
+			<span id="fontintro" style="font-size: 130%"><%=$client.username%></span><hr>
+			<p><b>Тел.:</b> <% if not $client.phone%>
+								<a href="/settings"><span style="color: red">Не указанно</span></a>
+							<%else%>
+								<%= $client.phone%>
+							<%end%></p>
+			<p><b>Репутация:</b> <%=$client.reputation%></p>
+			<p><b>Дата регистрации:</b> <%=$client.created_at%></p>
+			<p><b>Всего объявлений:</b> <%=$client.total_ads%></p>
+			<p><b>ID:</b> <%=$client.id%></p>
+		</div>
+	</div>
 </div>
 
 <br>

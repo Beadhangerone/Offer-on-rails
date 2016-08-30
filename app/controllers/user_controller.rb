@@ -1,6 +1,14 @@
 class UserController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
+  def show
+    @title = "Пользователь"
+    $user = User.where(username: "#{params[:id]}").take
+  end
+
+  def edit
+
+  end
 
   def create
     $reg_username = params[:reg_username]
@@ -35,14 +43,10 @@ class UserController < ApplicationController
     end
   end
 
+  
   def ads
     @title = "Ваши объявления"
     $ads = Ad.order('id DESC').where(author: "#{$client.username}")
-  end
-
-  def show
-    @title = "Пользователь"
-    $user = User.where(username: "#{params[:id]}").take
   end
 
 
