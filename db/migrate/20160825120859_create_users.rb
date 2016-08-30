@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.text :username
       t.text :pass
+      t.text :phone
       t.integer :total_ads, default: 0
       t.integer :reputation, default: 0
       t.timestamps
