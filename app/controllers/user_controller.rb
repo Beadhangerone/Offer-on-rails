@@ -17,6 +17,7 @@ class UserController < ApplicationController
       $client.username = @username if @username != ""      
       $client.pass = @new_pass if @old_pass != ""
       $client.phone = @phone if @phone != ""
+      $client.phone = nil if @phone == ""
       $client.save
       $success = "Изменения вступили в силу"
       redirect_to profile_path
