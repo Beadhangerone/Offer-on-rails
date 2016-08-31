@@ -5,7 +5,7 @@
 		
 		<div class="col-md-7">
 			<span id="fontintro" style="font-size: 130%"><%=$user.username%></span><hr>
-			<p><b>Тел.:</b> <% if $user.phone == ""%>
+			<p><b>Тел.:</b> <% if $user.phone == nil%>
 								Не указанно
 							<%else%>
 								<%= $user.phone%>
