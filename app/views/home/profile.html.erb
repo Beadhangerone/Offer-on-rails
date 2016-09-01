@@ -5,12 +5,8 @@
 
 		<div class="col-md-7">
 			<span id="fontintro" style="font-size: 130%"><%=$client.username%></span><hr>
-			<p><b>Тел.:</b>
-				<%if client_phone=="Не указано"%>
-					<a href="/settings"><span style="color: red"><%=client_phone%></span></a>
-				<%else%>
-					<%=client_phone%>
-				<%end%>
+			<p><b>Телефоны:</b>
+			<a href="/settings"><span <%if client_phone=="Не указано"%> style="color: red"<%end%>><%=client_phone%></span></a>
 			</p>
 			<p><b>Репутация:</b> <%=$client.reputation%></p>
 			<p><b>Дата регистрации:</b> <%=$client.created_at%></p>

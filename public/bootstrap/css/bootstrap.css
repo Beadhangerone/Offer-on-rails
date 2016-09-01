@@ -241,8 +241,26 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     padding:0;
 }
 
-.astext:hover{
-  
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
 /*=============formating_end*/
 
@@ -303,7 +321,7 @@ template {
   display: none;
 }
 abbr[title] {
-  border-bottom: 1px dotted;
+  border-bottom: none;
 }
 b,
 strong {
@@ -1709,7 +1727,7 @@ dd {
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted #777;
+  border-bottom: none;
 }
 .initialism {
   font-size: 90%;

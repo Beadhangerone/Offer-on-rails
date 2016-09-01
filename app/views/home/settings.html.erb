@@ -1,3 +1,4 @@
+
 <div class="border">
 	
 
@@ -19,12 +20,24 @@
 	</div>
 	<br>
 	<div class="border-content">
-		<%unless $client.phone%>
-			<div class="form-group"><span style="font-size: 85%">После указания телефона один раз вам не придется писать его при каждом написании объявления. Это удобно.</span><br>
-		<%end%>
-			<label>Телефон</label>
-			
-			<input name="phone" type="text" class="form-control" id="exampleInputPassword1" placeholder="Ваш телефон" value= <%= $client.phone %>><br>
+		<label>Телефоны</label><br>
+		
+			<div class="border-content">
+				<label>Добавить телефон</label>
+				<input name="phone" type="text" class="form-control"  placeholder="Ваш телефон">
+			</div><br>
+			<div class="border-content">
+				<label>Указанные</label>
+			<div class="form-group">
+				<span style="font-size: 85%">Вы сможете выбирать один из указанных телефонов при написании объявления. Это удобно.
+				</span><br>
+				<ul class="list-group">
+					<%client_phone.split(", ").each do |phone|%>					
+						<li class="list-group-item"><%= phone%></li>					
+					<%end%>
+				</ul>
+			</div>
+			<br>
 		</div>
 	</div>
 	<br>
