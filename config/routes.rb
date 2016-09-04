@@ -8,21 +8,23 @@ Rails.application.routes.draw do
 #-----home_end
 
 #-----user
+  get "/user/ads" => "user#ads"
   resources :user, only: [:show]
   post "/registration" => "user#create"
   post "/login" => "user#login"
-  get "/user/ads" => "user#ads"
   post "/settings" => "user#edit"
 #-----user_end
 
 #-----ad
-  resources :ad
+  resources :ad, except: [:index, :update]
   get "/ad/latest" => "ad#latest"
   # get "/ad/new" => "ad#new"
   # post "/ad/new" => "ad#create"
   # get "/ad/:id" => "ad#show"
 
-#-----ad_end
+#-----category_end
+  resources :category, only: [:show]
+#-----category
 
 
 
