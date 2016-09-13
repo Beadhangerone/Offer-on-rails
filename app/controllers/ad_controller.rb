@@ -71,6 +71,8 @@ class AdController < ApplicationController
   def destroy
     @ad = Ad.find(params[:id])
     @ad.destroy
+    $client.total_ads -=1
+    $client.save
     $success = "Объявление удалено!"
     redirect_to "/"
   end
