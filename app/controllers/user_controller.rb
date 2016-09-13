@@ -14,9 +14,9 @@ class UserController < ApplicationController
     @phone = params[:phone]
     $error = validation_for("edit").join(" | ")
     if $error == ""      
-      $client.username = @username if @username != ""      
+      $client.username = @username if @username != ""   
       $client.pass = @new_pass if @old_pass != ""
-      $client.phone = "#{$client.phone}, #{@phone}" if @phone != ""
+      append_to_client("phone", "#{@phone}") if @phone != ""
       $client.save
       $success = "Изменения вступили в силу"
       redirect_to profile_path
@@ -67,7 +67,7 @@ class UserController < ApplicationController
 
 
 
-
+#__________________________________________________________________________________
 
   private
 
@@ -132,4 +132,21 @@ class UserController < ApplicationController
       return errors
     end         
   end
+
+
+  def append_to_client(field, string)
+
+    if field == "phone"
+      if $client.phone != nil
+        field = $client.phone.split(", ")
+        field << string
+        $client.phone = field.join(", ")
+      else
+        $client.phone = string
+      end
+    end
+
+    $client.save
+  end
+
 end
