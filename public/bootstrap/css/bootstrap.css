@@ -14,6 +14,17 @@ body {
   background-image: url(/diagonal_fabric.png);
   margin: 0;
 }
+
+/*=============formating*/
+#width-50 {
+  width: 50%;
+}
+.icon {
+  font-size: 130%;
+}
+/*=============formating_end*/
+
+
 /*===========header*/
 
 .gradient {
@@ -227,13 +238,6 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 /*=============main_content_end*/
 
-
-
-/*=============formating*/
-#width-50 {
-  width: 50%;
-}
-/*=============formating_end*/
 
 a {
   color: #4682b4;

@@ -17,9 +17,9 @@
 	    			</div>
 	    			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      				<ul class="nav navbar-nav" >
-	        				<li id="nav_border"><a href="/"><span class="glyphicon glyphicon-home"></span> Главная </a></li>
+	        				<li id="nav_border"><a href="/"><span class="glyphicon glyphicon-home icon"></span> Главная </a></li>
 					        <!-- <li id="nav_border"><a href="/categories"><span class="glyphicon glyphicon-check"></span> Регистрация </a></li> -->
-					        <li id="nav_border"><a href="/ad/new"><span class="glyphicon glyphicon-pencil"></span> Написать объявление</a></li>
+					        <li id="nav_border"><a href="/ad/new"><span class="glyphicon glyphicon-pencil icon icon"></span> Написать объявление</a></li>
 	      				</ul>
 	     		 		<form class="navbar-form navbar-left" role="search">
 	        				<div class="form-group">
@@ -30,12 +30,12 @@
 	      				<ul class="nav navbar-nav navbar-right">	      					
 	        				<li id="nav_border">
 		        				<a href="/profile">
-		        					<span class="glyphicon glyphicon-user"></span> <%=username%>
+		        					<span class="glyphicon glyphicon-user icon"></span> <%=username%>
 								</a>
 			 				</li>
 				 			<% if $client %>
 		        				<li id="nav_border" class="dropdown">
-		          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Управление профилем <span class="caret"></span>
+		          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog icon"></span> Управление профилем <span class="caret"></span>
 		          					</a>
 		          					<ul class="dropdown-menu">
 							            <li><a href="/settings">Настройки</a></li>
@@ -57,7 +57,7 @@
 		<div class="col-md-3">
 			<div class='categorybar'>
 				<table class="table category"> 
-					<caption class="text-center"><span class="glyphicon glyphicon-list-alt"></span><span id='fontintro'>  Категории</span></caption>		
+					<caption class="text-center"><span class="glyphicon glyphicon-list-alt icon"></span><span id='fontintro'>  Категории</span></caption>		
 					<% categs.each do |categ|%>
 						<div>
 				   			<tr>
