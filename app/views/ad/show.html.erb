@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-10">
+	<div class="col-md-9">
 		<br>
 		<span style="font-size:125%"><%=$ad.ad_text%></span>
 		<br><br>
@@ -16,10 +16,30 @@
 		%>
 	</div>
 	<%if $client && $ad.author == $client.username%>
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<div class="list-group">
-				<a href="/ad/<%= $ad.id%>/edit" class="list-group-item">Редактировать объявление</a>
-				<a href="/ad/<%= $ad.id%>/destroy" onClick="return confirm('Действительно удалить объявление?');" class="list-group-item">Удалить объявление</a>
+				
+				<a href="/ad/<%= $ad.id%>/edit" class="list-group-item">
+					<div class="row">
+						<div class="col-md-3">
+							<span style="padding-top: 7px;" class="glyphicon glyphicon-edit icon"></span>
+						</div>
+						<div class="col-md-9">
+							Редактировать объявление
+						</div>
+					</div>
+				</a>
+									
+				<a href="/ad/<%= $ad.id%>/destroy" onClick="return confirm('Действительно удалить объявление?');" class="list-group-item">
+					<div class="row">
+						<div class="col-md-3">
+							<span style="padding-top: 7px;" class="glyphicon glyphicon-trash icon"></span>
+						</div>
+						<div class="col-md-9">
+							Удалить объявление
+						</div>
+					</div>
+				</a>
 			</div>
 		</div>
 	<%end%>
