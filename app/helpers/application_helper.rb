@@ -10,4 +10,5 @@ module ApplicationHelper
   def client_phone
    $client.phone != nil ? $client.phone : "Не указано"
   end
+
 end

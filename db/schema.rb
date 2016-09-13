@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160825120859) do
     t.text     "bill_type"
     t.text     "ad_header"
     t.text     "ad_text"
+    t.text     "phone"
     t.integer  "views",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -16,26 +16,29 @@ class AdController < ApplicationController
     $bill_type = params[:bill_type]
     $ad_header = params[:ad_header]
     $ad_text = params[:ad_text]
+    $phone = params[:phone]
   
     $error = validation_for("ad/new").join " | "
 
     if $error == ""
-      @ad=Ad.new 
+      @ad=Ad.new
         @ad.author = $client.username
         @ad.category = $category
         @ad.bill_type = $bill_type
         @ad.ad_header = $ad_header
         @ad.ad_text = $ad_text
+        @ad.phone = $phone
       @ad.save
 
       $client.total_ads += 1
       $client.save
       $success = "Объявление подано!"
-      redirect_to @ad
       $category = nil
       $bill_type = nil
       $ad_header = nil
       $ad_text = nil
+      $phone = nil
+      redirect_to @ad
     else
       redirect_to new_ad_path
     end   
@@ -55,11 +58,13 @@ class AdController < ApplicationController
     $bill_type = params[:bill_type]
     $ad_header = params[:ad_header]
     $ad_text = params[:ad_text]
+    $phone = params[:phone]
     $error = validation_for("ad/new").join(" | ")
     if $error == ""
       $ad.bill_type = $bill_type
       $ad.ad_header = $ad_header
       $ad.ad_text = $ad_text
+      $ad.phone = $phone
       $ad.save
       $success="Объявление отредактировано!"
       redirect_to $ad
@@ -93,6 +98,7 @@ class AdController < ApplicationController
       errors << 'Выберите тип предложения' if $bill_type.to_s.length == 0
       errors << 'Введите заголовок объявления' if $ad_header.to_s.length == 0
       errors << 'Введите текст объявления' if $ad_text.to_s.length == 0
+      errors << 'Выберите телефон' if $phone.to_s.length == 0
     end
     return errors
   end

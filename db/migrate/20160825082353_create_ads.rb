@@ -6,6 +6,7 @@ class CreateAds < ActiveRecord::Migration
       t.text :bill_type
       t.text :ad_header
       t.text :ad_text
+      t.text :phone
       t.integer :views, default: 0
       t.timestamps
     end
