@@ -43,14 +43,14 @@
 
 	<div class="radio">
 		<label>
-			<input name="sell_buy" value="Продам" type="radio"  id="optionsRadios1"
-			<%if $error && params[:sell_buy]=="Продам"%> checked <%end%>>Продам
+			<input name="bill_type" value="Продам" type="radio"  id="optionsRadios1"
+			<%if $error && params[:bill_type]=="Продам"%> checked <%end%>>Продам
 		</label>
 	</div>
 	<div class="radio">
 		<label>
-		    <input name="sell_buy" value="Куплю" type="radio"  id="optionsRadios2"
-		    <%if $error && params[:sell_buy]=="Куплю"%> checked <%end%>>Куплю
+		    <input name="bill_type" value="Куплю" type="radio"  id="optionsRadios2"
+		    <%if $error && params[:bill_type]=="Куплю"%> checked <%end%>>Куплю
 		</label>
 	</div>
 	<input name="ad_header" type="text" class="form-control" placeholder="Заголовок объявления"
