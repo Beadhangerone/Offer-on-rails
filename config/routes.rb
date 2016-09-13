@@ -16,8 +16,9 @@ Rails.application.routes.draw do
 #-----user_end
 
 #-----ad
-  resources :ad, except: [:index, :update]
-  post "/ad/:id/edit" => "ad#update" 
+  resources :ad, except: [:index, :update, :destroy]
+  post "/ad/:id/edit" => "ad#update"
+  get "/ad/:id/destroy" => "ad#destroy"
   get "/ad/latest" => "ad#latest"
   # get "/ad/new" => "ad#new"
   # post "/ad/new" => "ad#create"

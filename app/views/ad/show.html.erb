@@ -19,7 +19,7 @@
 		<div class="col-md-2">
 			<div class="list-group">
 				<a href="/ad/<%= $ad.id%>/edit" class="list-group-item">Редактировать объявление</a>
-				<a href="#" class="list-group-item">Удалить объявление</a>
+				<a href="/ad/<%= $ad.id%>/destroy" onClick="return confirm('Действительно удалить объявление?');" class="list-group-item">Удалить объявление</a>
 			</div>
 		</div>
 	<%end%>
