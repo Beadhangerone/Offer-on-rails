@@ -13,7 +13,7 @@ class AdController < ApplicationController
 
   def create
     @category = params[:category]
-    @bill_type = params[:sell_buy]
+    @bill_type = params[:bill_type]
     @ad_header = params[:ad_header]
     @ad_text = params[:ad_text]
 
@@ -39,8 +39,35 @@ class AdController < ApplicationController
   end
 
   def show
-    @title = "Объявление"
     $ad = Ad.where(id: "#{params[:id]}").take
+    @title = $ad.ad_header
+  end
+
+  def edit
+    @title = "Редактирование объявления" 
+  end
+
+  def update
+    @category = $ad.category
+    @bill_type = params[:bill_type]
+    @ad_header = params[:ad_header]
+    @ad_text = params[:ad_text]
+    $error = validation_for("ad/new").join(" | ")
+    if $error == ""
+      $ad.bill_type = @bill_type
+      $ad.ad_header = @ad_header
+      $ad.ad_text = @ad_text
+      $ad.save
+      $success="Объявление отредактировано!"
+      redirect_to $ad
+    else 
+      redirect_to edit_ad_path
+    end 
+  end
+
+  def destroy
+    @ad = Ad.find(params[:id])
+    @ad.destroy
   end
 
   def latest

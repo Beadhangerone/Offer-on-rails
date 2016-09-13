@@ -1,15 +1,26 @@
-<h3><b><%=$ad.ad_header%></b></h3>
-<hr>
-<br>
-<span><%=$ad.ad_text%></span>
-<br><br>
-<hr>
-<br>
-<span style="font-size:85%">
-<b>Автор: </b><a href="/user/<%= $ad.author%>"><%= $ad.author%></a><br>
-<b>Добавлена: </b><%= $ad.created_at%><br>
-<b>Просмотров: </b><%= $ad.views %>
-</span>
-<%		$ad.views +=1
-		$ad.save
-%>
+<div class="row">
+	<div class="col-md-10">
+		<br>
+		<span style="font-size:125%"><%=$ad.ad_text%></span>
+		<br><br>
+		<hr>
+		<br>
+		<span style="font-size:85%">
+		<b>Автор: </b><a href="/user/<%= $ad.author%>"><%= $ad.author%></a><br>
+		<b>Добавлена: </b><%= $ad.created_at%><br>
+		<b>Просмотров: </b><%= $ad.views %>
+		</span>
+		<%	
+			$ad.views +=1
+			$ad.save
+		%>
+	</div>
+	<%if $client && $ad.author == $client.username%>
+		<div class="col-md-2">
+			<div class="list-group">
+				<a href="/ad/<%= $ad.id%>/edit" class="list-group-item">Редактировать объявление</a>
+				<a href="#" class="list-group-item">Удалить объявление</a>
+			</div>
+		</div>
+	<%end%>
+</div>

@@ -1,0 +1,21 @@
+
+<form action ='/ad/<%=$ad.id%>/edit' method="POST">
+
+	<div class="radio">
+		<label>
+			<input name="bill_type" value="Продам" type="radio"  id="optionsRadios1"
+			<%if $ad.bill_type=="Продам"%> checked <%end%>>Продам
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+		    <input name="bill_type" value="Куплю" type="radio"  id="optionsRadios2"
+		    <%if $ad.bill_type=="Куплю"%> checked <%end%>>Куплю
+		</label>
+	</div>
+	<input name="ad_header" type="text" class="form-control" placeholder="Заголовок объявления"
+	value="<%=$ad.ad_header%>"><br>
+	<textarea name="ad_text" class="form-control" wrap="hard" cols="100" rows="20"
+	 placeholder="Текст объявления"><%=$ad.ad_text%></textarea><br>
+	<button type="submit" class="btn btn-default" style="float:right;">Submit</button>
+</form>

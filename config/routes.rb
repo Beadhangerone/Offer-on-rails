@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
 #-----ad
   resources :ad, except: [:index, :update]
+  post "/ad/:id/edit" => "ad#update" 
   get "/ad/latest" => "ad#latest"
   # get "/ad/new" => "ad#new"
   # post "/ad/new" => "ad#create"
