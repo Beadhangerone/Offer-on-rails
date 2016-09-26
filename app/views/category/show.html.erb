@@ -1,4 +1,10 @@
-<div class="border-content">	
+<div class="border-content">
+	<% $subcategories.each do |subcategory| %>
+		<%= subcategory.subcategory %><br>
+	<%end%>
+</div>
+
+<div class="border-content">
 	<% $ads.each do |ad| %>
 		<a href="/ad/<%= ad.id %>"><b style="font-size:130%;"><%= ad.ad_header %></b></a>
 		<br><br>

@@ -25,7 +25,9 @@ Rails.application.routes.draw do
 #-----ad_end
 
 #-----category_end
-  resources :category, only: [:show]
+  resources :category, only: [:show] do
+    resources :subcategory, only: [:show]
+  end
 #-----category
 
 
