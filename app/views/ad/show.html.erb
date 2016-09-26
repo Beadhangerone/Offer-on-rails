@@ -1,11 +1,16 @@
 <div class="row">
 	<div class="col-md-9">
 		<br>
-		<span style="font-size:125%"><%=$ad.ad_text%></span>
+		<span style="font-size:124%"><%=$ad.ad_text%></span>
 		<br><br>
 		<hr>
 		<br>
-		<span style="font-size: 110%"><b>Тел: <%= $ad.phone%></b></span><br>
+		<span style="font-size: 110%">
+			<b>Тип предложения:</b> <%= $ad.bill_type %>
+			<br>
+			<b>Тел:</b> <%= $ad.phone%>
+		</span>
+		<br>
 		<hr>
 		<span style="font-size:85%">
 			<b>Автор: </b><a href="/user/<%= $ad.author%>"><%= $ad.author%></a><br>

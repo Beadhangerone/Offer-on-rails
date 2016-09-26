@@ -36,16 +36,21 @@
 	<textarea name="ad_text" class="form-control" wrap="hard" cols="100" rows="20" placeholder="Текст объявления"><%= $ad_text %></textarea><br>
 
 	<div class="input-group">
-		<div class="input-group-addon">Телефон</div>
-		<select name="phone" class="form-control ctgr_select">
-			<%if not $phone%>
-				<option disabled selected> Выберите телефон </option>
-			<%end%>
+		
+		<%if client_phone != "Не указано"%>
+			<div class="input-group-addon">Телефон</div>
+			<select name="phone" class="form-control ctgr_select">
+				<%if not $phone%>
+					<option disabled selected> Выберите телефон </option>
+				<%end%>
 
-			<% client_phone.split(", ").each do |phone|%>
-				<option <%if phone == $phone%> selected <%end%> value=<%= phone %>><%= phone %></option>
-			<% end%>
-		</select>
+				<% client_phone.split(", ").each do |phone|%>
+					<option <%if phone == $phone%> selected <%end%> value=<%= phone %>><%= phone %></option>
+				<%end%>	
+			</select>
+		<%else %>
+		 Укажите свой телефон в <a href="/settings">настройках</a>
+		<%end%>
 	</div><br>
 
 	<button type="submit" class="btn btn-default" style="float:right;">Submit</button>

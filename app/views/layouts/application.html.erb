@@ -2,9 +2,12 @@
 <html>
 <head>
 	<title>My syte</title>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="/bootstrap/jquery-1.9.1.min.js"></script>
-		<!-- Bootstrap -->
+	<!-- Bootstrap -->
 	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 </head>
 <body class="diagonal_fabric">
@@ -54,7 +57,7 @@
 	</div>
 
 	<div class="row">	  
-		<div class="col-md-3">
+		<div class="col-xs-2">
 			<div class='categorybar'>
 				<table class="table category"> 
 					<caption class="text-center"><span class="glyphicon glyphicon-list-alt icon"></span><span id='fontintro'>  Категории</span></caption>		
@@ -73,11 +76,11 @@
 			</div>
 		</div>
 
-		<div class="col-md-9 container" id="head_container">
+		<div class="col-xs-10 container" id="head_container">
 			<div class="page-hdr text-center"><span  class="<%=$icon%>"></span> <%= @title%></div>
 		</div>
 
-		<div class="col-md-9 container">
+		<div class="col-xs-10 container">
 		    <%if $error !=nil && $error.length > 0 then %>
 		        <div class="alert alert-danger"><%=$error%></div>
 		    <% end %>
